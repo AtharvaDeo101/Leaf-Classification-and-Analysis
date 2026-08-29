@@ -6,14 +6,12 @@ import numpy as np
 
 
 def _border_is_background(mask: np.ndarray, frac: float = 0.75) -> bool:
-    """A correct mask has mostly-zero borders. Used to detect polarity flips."""
     border = np.concatenate([mask[0], mask[-1], mask[:, 0], mask[:, -1]])
     return float((border == 0).mean()) >= frac
 
 
 def _mask_from_lab_a(bgr: np.ndarray) -> np.ndarray:
-    """Otsu on the a* channel. Green pixels sit low in a*, white paper near 128,
-    so the split is far cleaner than grayscale Otsu."""
+
     a = cv2.cvtColor(bgr, cv2.COLOR_BGR2LAB)[:, :, 1]
     _, mask = cv2.threshold(a, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
     return mask
@@ -49,8 +47,7 @@ def largest_component(mask: np.ndarray) -> np.ndarray:
 
 
 def segment(bgr: np.ndarray) -> dict:
-    """Try both candidate masks, keep whichever has a cleaner background border
-    and a plausible foreground fraction."""
+
     candidates = []
     for name, fn in (("lab_a", _mask_from_lab_a), ("exg", _mask_from_exg)):
         try:

@@ -1,0 +1,28 @@
+
+
+[
+  {
+    "id": "acer_palmatum",
+    "common_name": "Japanese maple",
+    "scientific_name": "Acer palmatum",
+    "family": "Sapindaceae",
+    "margin_type": "lobed",
+    "notes": "Deeply palmate, 5-7 lobes. Very low solidity — a strong separator."
+  },
+  {
+    "id": "cercis_chinensis",
+    "common_name": "Chinese redbud",
+    "scientific_name": "Cercis chinensis",
+    "family": "Fabaceae",
+    "margin_type": "entire",
+    "notes": "Cordate outline, high solidity and circularity."
+  },
+  {
+    "id": "ginkgo_biloba",
+    "common_name": "Ginkgo",
+    "scientific_name": "Ginkgo biloba",
+    "family": "Ginkgoaceae",
+    "margin_type": "entire",
+    "notes": "Fan-shaped. Dichotomous venation makes vein ratios distinctive."
+  }
+]
