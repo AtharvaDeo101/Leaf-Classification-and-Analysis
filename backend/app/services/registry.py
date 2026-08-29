@@ -26,6 +26,26 @@ class LoadedModel:
         self.feature_names: list[str] = list(bundle["feature_names"])
         self.classes: list[str] = [str(c) for c in bundle["classes"]]
         self.metrics: dict = bundle.get("metrics", {})
+        # Absent in bundles trained before the novelty guard existed.
+        self.novelty: dict | None = bundle.get("novelty")
+
+    def novelty_distance(self, features: dict) -> float | None:
+        """Distance to the nearest reference leaf, or None if unguarded.
+
+        Carries its own scaler: the random-forest bundle has scaler=None, but
+        the guard is always measured in the same standardised space.
+        """
+        if self.novelty is None:
+            return None
+        x = to_vector(features, self.feature_names)
+        x = self.novelty["scaler"].transform(x)
+        return float(self.novelty["nn"].kneighbors(x, n_neighbors=1)[0][0, 0])
+
+    def is_off_collection(self, features: dict) -> tuple[bool, float | None]:
+        distance = self.novelty_distance(features)
+        if distance is None:
+            return False, None
+        return distance > float(self.novelty["threshold"]), distance
 
     def predict(self, features: dict, top_k: int = 5) -> list[dict]:
         x = to_vector(features, self.feature_names)

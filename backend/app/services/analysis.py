@@ -50,7 +50,16 @@ def run_analysis(db: Session, raw: bytes, filename: str,
     model = registry.get(model_key)
     if model is not None:
         try:
-            predictions = model.predict(features, top_k=top_k)
+            # Every class model returns one of its classes for any input, so
+            # check the specimen belongs to the collection before naming it.
+            off_collection, distance = model.is_off_collection(features)
+            if distance is not None:
+                meta["novelty_distance"] = round(distance, 2)
+                meta["novelty_threshold"] = round(
+                    float(model.novelty["threshold"]), 2)
+            meta["off_collection"] = off_collection
+            if not off_collection:
+                predictions = model.predict(features, top_k=top_k)
         except Exception as exc:
             logger.error(f"Inference failed for {analysis_id}: {exc}")
 

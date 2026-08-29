@@ -11,10 +11,22 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, f1_score
 from sklearn.model_selection import train_test_split
+from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 
 NON_FEATURE_COLS = ("image_id", "label", "margin_type", "seg_method")
+
+# How much further than a typical reference leaf a specimen may sit before it
+# is called off-collection.
+#
+# Measured on this dataset: held-out leaves reach 21.8, a stylised leaf icon
+# scores 29.7, and non-leaf shapes (star, mug, hand, text) land at 59-82. 1.3
+# puts the line at ~26 — clear of every real leaf, below the icon.
+#
+# Calibrated against Flavia's clean scans. A real photograph on a busy
+# background scores higher, so raise this if genuine leaves get turned away.
+NOVELTY_SLACK = 1.3
 
 
 def main() -> int:
@@ -42,6 +54,25 @@ def main() -> int:
     scaler = StandardScaler().fit(X_tr)
     X_tr_s, X_te_s = scaler.transform(X_tr), scaler.transform(X_te)
 
+    # Novelty guard. A 32-class model always returns one of its 32 classes, so
+    # a photo of anything at all gets named a species. Measure how far a
+    # specimen sits from the nearest reference leaf and refuse to guess when
+    # it is further than any real leaf ever is.
+    #
+    # Calibrated on the training set's own nearest-neighbour distances
+    # (excluding self), so no held-out data leaks into the threshold.
+    nn = NearestNeighbors(n_neighbors=2).fit(X_tr_s)
+    train_nn = nn.kneighbors(X_tr_s)[0][:, 1]
+    threshold = float(np.quantile(train_nn, 0.99) * NOVELTY_SLACK)
+
+    test_nn = nn.kneighbors(X_te_s, n_neighbors=1)[0][:, 0]
+    rejected = float((test_nn > threshold).mean())
+    print(f"novelty threshold {threshold:.2f} "
+          f"(train p99 {np.quantile(train_nn, 0.99):.2f}); "
+          f"rejects {rejected:.1%} of held-out leaves")
+
+    novelty = {"nn": nn, "scaler": scaler, "threshold": threshold}
+
     args.out.mkdir(parents=True, exist_ok=True)
     jobs = [
         ("svm_bundle.joblib", SVC(C=10, gamma="scale", probability=True,
@@ -63,6 +94,7 @@ def main() -> int:
         joblib.dump({"model": model, "scaler": sc,
                      "feature_names": feature_names,
                      "classes": list(model.classes_),
+                     "novelty": novelty,
                      "metrics": metrics}, args.out / fname)
         print(f"{fname}: acc={metrics['accuracy']:.3f} "
               f"macro_f1={metrics['macro_f1']:.3f}")

@@ -59,6 +59,9 @@ export function SpecimenSheet({
 }) {
   const top = analysis.prediction
   const named = top ? species[top.label] : undefined
+  const offCollection = analysis.meta?.off_collection === true
+  const distance = analysis.meta?.novelty_distance as number | undefined
+  const threshold = analysis.meta?.novelty_threshold as number | undefined
   const alternates = analysis.top_k.slice(1)
   const groups = Object.entries(analysis.feature_groups).filter(
     ([, feats]) => Object.keys(feats).length > 0,
@@ -134,6 +137,38 @@ export function SpecimenSheet({
                     {named.notes}
                   </p>
                 )}
+              </>
+            ) : offCollection ? (
+              <>
+                <h2 className="font-serif text-4xl md:text-5xl italic text-tone leading-tight">
+                  Not a leaf in this collection
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground max-w-lg">
+                  The shape measured here sits further from all 32 reference species
+                  than any real leaf does, so naming one would be a guess. Either the
+                  photograph isn&apos;t a leaf, or the leaf couldn&apos;t be separated
+                  cleanly from its background — the stages below show what was
+                  actually measured.
+                </p>
+                {distance != null && threshold != null && (
+                  <dl className="mt-7 flex gap-10 border-t border-border pt-6">
+                    <div>
+                      <dt className="label">Distance from collection</dt>
+                      <dd className="mt-1 font-mono text-lg text-tone tabular-nums">
+                        {distance.toFixed(1)}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="label">Accepted below</dt>
+                      <dd className="mt-1 font-mono text-lg text-paper tabular-nums">
+                        {threshold.toFixed(1)}
+                      </dd>
+                    </div>
+                  </dl>
+                )}
+                <p className="mt-6 text-sm text-muted-foreground">
+                  Try a single leaf, flat against a plain background.
+                </p>
               </>
             ) : (
               <>
