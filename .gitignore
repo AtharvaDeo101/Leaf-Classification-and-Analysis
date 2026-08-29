@@ -2,5 +2,6 @@
 archive
 artifacts
 .venv 
-data
 storage
+data
+

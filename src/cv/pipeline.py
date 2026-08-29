@@ -4,8 +4,9 @@ from __future__ import annotations
 import cv2
 import numpy as np
 
-from src.cv import preprocessing, segmentation
+from src.cv import segmentation
 from src.cv.features import color, fourier, geometric, margin, moments, texture, veins
+from src.cv import preprocessing
 
 PIPELINE_VERSION = "1.0.0"
 

@@ -1,28 +1,258 @@
-
-
 [
   {
-    "id": "acer_palmatum",
-    "common_name": "Japanese maple",
-    "scientific_name": "Acer palmatum",
-    "family": "Sapindaceae",
-    "margin_type": "lobed",
-    "notes": "Deeply palmate, 5-7 lobes. Very low solidity — a strong separator."
+    "id": "0",
+    "common_name": "Pubescent bamboo",
+    "scientific_name": "Phyllostachys edulis",
+    "family": "Poaceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 1001-1059. Long, narrow blade with parallel venation."
   },
   {
-    "id": "cercis_chinensis",
+    "id": "1",
+    "common_name": "Chinese horse chestnut",
+    "scientific_name": "Aesculus chinensis",
+    "family": "Sapindaceae",
+    "margin_type": "serrate",
+    "notes": "Flavia images 1060-1122. Palmate leaflets, finely serrate."
+  },
+  {
+    "id": "2",
+    "common_name": "Anhui barberry",
+    "scientific_name": "Berberis anhweiensis",
+    "family": "Berberidaceae",
+    "margin_type": "dentate",
+    "notes": "Flavia images 1552-1616. Small obovate blade with spiny teeth."
+  },
+  {
+    "id": "3",
     "common_name": "Chinese redbud",
     "scientific_name": "Cercis chinensis",
     "family": "Fabaceae",
     "margin_type": "entire",
-    "notes": "Cordate outline, high solidity and circularity."
+    "notes": "Flavia images 1123-1194. Cordate outline, high solidity and circularity."
   },
   {
-    "id": "ginkgo_biloba",
+    "id": "4",
+    "common_name": "True indigo",
+    "scientific_name": "Indigofera tinctoria",
+    "family": "Fabaceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 1195-1267. Small oblong leaflet, entire margin."
+  },
+  {
+    "id": "5",
+    "common_name": "Japanese maple",
+    "scientific_name": "Acer palmatum",
+    "family": "Sapindaceae",
+    "margin_type": "lobed",
+    "notes": "Flavia images 1268-1323. Deeply palmate, 5-7 lobes. Very low solidity - a strong separator."
+  },
+  {
+    "id": "6",
+    "common_name": "Nanmu",
+    "scientific_name": "Phoebe nanmu",
+    "family": "Lauraceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 1324-1385. Elliptic, leathery, entire."
+  },
+  {
+    "id": "7",
+    "common_name": "Castor aralia",
+    "scientific_name": "Kalopanax septemlobus",
+    "family": "Araliaceae",
+    "margin_type": "lobed",
+    "notes": "Flavia images 1386-1437. Broad palmate blade with 5-7 lobes."
+  },
+  {
+    "id": "8",
+    "common_name": "Chinese cinnamon",
+    "scientific_name": "Cinnamomum japonicum",
+    "family": "Lauraceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 1497-1551. Lanceolate with three prominent veins."
+  },
+  {
+    "id": "9",
+    "common_name": "Goldenrain tree",
+    "scientific_name": "Koelreuteria paniculata",
+    "family": "Sapindaceae",
+    "margin_type": "serrate",
+    "notes": "Flavia images 1438-1496. Irregularly serrate to shallowly lobed leaflet."
+  },
+  {
+    "id": "10",
+    "common_name": "Big-fruited holly",
+    "scientific_name": "Ilex macrocarpa",
+    "family": "Aquifoliaceae",
+    "margin_type": "serrate",
+    "notes": "Flavia images 2001-2050. Ovate with fine sharp teeth."
+  },
+  {
+    "id": "11",
+    "common_name": "Japanese cheesewood",
+    "scientific_name": "Pittosporum tobira",
+    "family": "Pittosporaceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 2051-2113. Obovate, thick, rounded apex, revolute margin."
+  },
+  {
+    "id": "12",
+    "common_name": "Wintersweet",
+    "scientific_name": "Chimonanthus praecox",
+    "family": "Calycanthaceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 2114-2165. Ovate-lanceolate, rough texture."
+  },
+  {
+    "id": "13",
+    "common_name": "Camphor tree",
+    "scientific_name": "Cinnamomum camphora",
+    "family": "Lauraceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 2166-2230. Ovate, triple-veined, wavy but untoothed."
+  },
+  {
+    "id": "14",
+    "common_name": "Japan arrowwood",
+    "scientific_name": "Viburnum awabuki",
+    "family": "Adoxaceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 2231-2290. Large glossy oblong blade."
+  },
+  {
+    "id": "15",
+    "common_name": "Sweet osmanthus",
+    "scientific_name": "Osmanthus fragrans",
+    "family": "Oleaceae",
+    "margin_type": "serrate",
+    "notes": "Flavia images 2291-2346. Elliptic, often finely toothed toward the apex."
+  },
+  {
+    "id": "16",
+    "common_name": "Deodar cedar",
+    "scientific_name": "Cedrus deodara",
+    "family": "Pinaceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 2347-2423. Needle clusters - extreme aspect ratio, unlike any broadleaf class."
+  },
+  {
+    "id": "17",
     "common_name": "Ginkgo",
     "scientific_name": "Ginkgo biloba",
     "family": "Ginkgoaceae",
     "margin_type": "entire",
-    "notes": "Fan-shaped. Dichotomous venation makes vein ratios distinctive."
+    "notes": "Flavia images 2424-2485. Fan-shaped blade, often notched at the apex."
+  },
+  {
+    "id": "18",
+    "common_name": "Crape myrtle",
+    "scientific_name": "Lagerstroemia indica",
+    "family": "Lythraceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 2486-2546. Small elliptic blade, short petiole."
+  },
+  {
+    "id": "19",
+    "common_name": "Oleander",
+    "scientific_name": "Nerium oleander",
+    "family": "Apocynaceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 2547-2612. Very narrow lanceolate, thick midrib."
+  },
+  {
+    "id": "20",
+    "common_name": "Yew plum pine",
+    "scientific_name": "Podocarpus macrophyllus",
+    "family": "Podocarpaceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 2616-2675. Strap-shaped, high elongation."
+  },
+  {
+    "id": "21",
+    "common_name": "Japanese flowering cherry",
+    "scientific_name": "Prunus serrulata",
+    "family": "Rosaceae",
+    "margin_type": "serrate",
+    "notes": "Flavia images 3001-3055. Ovate with sharply serrate, often awned teeth."
+  },
+  {
+    "id": "22",
+    "common_name": "Glossy privet",
+    "scientific_name": "Ligustrum lucidum",
+    "family": "Oleaceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 3056-3110. Ovate, leathery, entire."
+  },
+  {
+    "id": "23",
+    "common_name": "Chinese toon",
+    "scientific_name": "Toona sinensis",
+    "family": "Meliaceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 3111-3175. Lanceolate leaflet, asymmetric base."
+  },
+  {
+    "id": "24",
+    "common_name": "Peach",
+    "scientific_name": "Prunus persica",
+    "family": "Rosaceae",
+    "margin_type": "serrate",
+    "notes": "Flavia images 3176-3229. Long lanceolate with fine crenate-serrate teeth."
+  },
+  {
+    "id": "25",
+    "common_name": "Ford woodlotus",
+    "scientific_name": "Manglietia fordiana",
+    "family": "Magnoliaceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 3230-3281. Oblong-elliptic, thick and glossy."
+  },
+  {
+    "id": "26",
+    "common_name": "Trident maple",
+    "scientific_name": "Acer buergerianum",
+    "family": "Sapindaceae",
+    "margin_type": "lobed",
+    "notes": "Flavia images 3282-3334. Three shallow forward-pointing lobes."
+  },
+  {
+    "id": "27",
+    "common_name": "Beale's barberry",
+    "scientific_name": "Mahonia bealei",
+    "family": "Berberidaceae",
+    "margin_type": "dentate",
+    "notes": "Flavia images 3335-3389. Holly-like leaflet with coarse spiny teeth. Lowest solidity after Japanese maple."
+  },
+  {
+    "id": "28",
+    "common_name": "Southern magnolia",
+    "scientific_name": "Magnolia grandiflora",
+    "family": "Magnoliaceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 3390-3446. Large thick elliptic blade."
+  },
+  {
+    "id": "29",
+    "common_name": "Canadian poplar",
+    "scientific_name": "Populus x canadensis",
+    "family": "Salicaceae",
+    "margin_type": "dentate",
+    "notes": "Flavia images 3447-3510. Deltoid outline with crenate-dentate margin."
+  },
+  {
+    "id": "30",
+    "common_name": "Chinese tulip tree",
+    "scientific_name": "Liriodendron chinense",
+    "family": "Magnoliaceae",
+    "margin_type": "lobed",
+    "notes": "Flavia images 3511-3563. Distinctive saddle-shaped blade with truncate apex."
+  },
+  {
+    "id": "31",
+    "common_name": "Tangerine",
+    "scientific_name": "Citrus reticulata",
+    "family": "Rutaceae",
+    "margin_type": "entire",
+    "notes": "Flavia images 3566-3621. Ovate with a winged petiole."
   }
 ]
