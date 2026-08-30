@@ -141,32 +141,6 @@ http://localhost:8000/docs. Watch the startup log for
 `Loaded model 'svm' (32 classes)` — if it says the artifact was not found, run
 the training step above.
 
-## API
-
-| Method | Path | Purpose |
-|--------|------|---------|
-| `POST` | `/api/analyze` | Identify a leaf. `?model=svm\|random_forest`, `?top_k=5` |
-| `POST` | `/api/segment` | Segmentation stages only, no classification |
-| `POST` | `/api/features` | The 155 descriptors, no stage images |
-| `POST` | `/api/batch` | Up to 25 files at once |
-| `GET` | `/api/history` | Past analyses |
-| `GET` | `/api/history/{id}` | One analysis |
-| `DELETE` | `/api/history/{id}` | Remove one |
-| `GET` | `/api/models` | Loaded models and their metrics |
-| `POST` | `/api/models/reload` | Re-read `artifacts/` without restarting |
-| `GET` | `/api/species` | All 32 species |
-| `GET` | `/api/species/{id}` | One species, keyed by predicted label |
-| `GET` | `/health` | Liveness |
-
-Species ids are the class labels the model predicts (`"0"`–`"31"`), so a
-prediction feeds straight into `/api/species/{label}`.
-
-```bash
-curl -X POST "http://localhost:8000/api/analyze?top_k=5" -F "file=@archive/Leaves/1268.jpg"
-```
-
-`1268.jpg` is a Japanese maple — expect label `5`.
-
 
 
 ## Notes
