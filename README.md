@@ -167,18 +167,7 @@ curl -X POST "http://localhost:8000/api/analyze?top_k=5" -F "file=@archive/Leave
 
 `1268.jpg` is a Japanese maple — expect label `5`.
 
-## Layout
 
-```
-backend/app/         FastAPI: routers, services, config, DB models
-src/cv/              The pipeline — preprocessing, segmentation, features/
-src/training/        extract_dataset.py, train.py
-frontend/            Next.js app (App Router, Tailwind v4)
-artifacts/           Trained model bundles          (gitignored)
-data/processed/      Extracted feature CSVs         (gitignored)
-storage/             SQLite DB and stage images     (gitignored)
-archive/Leaves/      Flavia dataset                 (gitignored)
-```
 
 ## Notes
 
