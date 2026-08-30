@@ -23,6 +23,10 @@ export const metadata: Metadata = {
   title: "Leafprint — leaf identification by shape",
   description:
     "Identifies 32 species from a leaf photograph using 155 measurements of shape, margin, vein and texture. No neural network.",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 }
 
 export default function RootLayout({

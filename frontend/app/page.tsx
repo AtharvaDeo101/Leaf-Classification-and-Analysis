@@ -59,7 +59,9 @@ export default function Page() {
         <div ref={sheet}>
           {analysis && <SpecimenSheet analysis={analysis} species={species} />}
         </div>
-        <Method analysis={analysis} />
+        {/* Still the explainer before anything is uploaded, but a refusal has
+            no stages worth walking through. */}
+        {analysis?.meta?.off_collection !== true && <Method analysis={analysis} />}
         <Footer />
       </main>
     </MotionConfig>

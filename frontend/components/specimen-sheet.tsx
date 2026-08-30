@@ -147,8 +147,7 @@ export function SpecimenSheet({
                   The shape measured here sits further from all 32 reference species
                   than any real leaf does, so naming one would be a guess. Either the
                   photograph isn&apos;t a leaf, or the leaf couldn&apos;t be separated
-                  cleanly from its background — the stages below show what was
-                  actually measured.
+                  cleanly from its background.
                 </p>
                 {distance != null && threshold != null && (
                   <dl className="mt-7 flex gap-10 border-t border-border pt-6">
@@ -215,7 +214,10 @@ export function SpecimenSheet({
           </div>
         )}
 
-        {/* Measurements */}
+        {/* Measurements. Hidden on a refusal: the numbers describe whatever
+            was segmented, and showing them next to "not a leaf" invites
+            reading meaning into figures that have none. */}
+        {!offCollection && (
         <div className="border-r border-b border-border p-6 md:p-8">
           <div className="flex items-baseline justify-between flex-wrap gap-2 mb-6">
             <p className="label">Measurements</p>
@@ -268,6 +270,7 @@ export function SpecimenSheet({
             })}
           </div>
         </div>
+        )}
       </div>
     </motion.section>
   )
